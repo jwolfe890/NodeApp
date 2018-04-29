@@ -16,7 +16,12 @@ if (command === 'add') {
    var note = notes.addNote(argv.title, argv.body);
    return note ? console.log("Note created") : console.log("Note already exists")
 } else if (command === 'list') {
-    notes.getAll();
+    var allNotes = notes.getAll();
+
+    console.log(`Printing ${allNotes.length} note(s)`);
+
+    allNotes.forEach((note) => notes.logNotes(note))
+
 } else if (command === 'read') {
 
     var note = notes.getNote(argv.title);

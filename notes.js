@@ -16,11 +16,14 @@ var saveNotes = (notes) => {
 };
 
 var addNote = (title, body) => {
+
     var notes = fetchNotes();
     var note = {
         title,
         body 
     };
+
+    debugger;
 
     var duplicateNotes = notes.filter((note) => note.title === title); 
 // this is basically saying if the note's title already exists, 
@@ -34,7 +37,7 @@ var addNote = (title, body) => {
 };
 
 var getAll = () => {
-    console.log('Getting all notes');
+    return fetchNotes();
 };
 
 var getNote = (title) => {
@@ -50,10 +53,15 @@ var removeNote = (title) => {
     return notes.length !== newNotes.length  
 };  
 
+var logNotes = (note) => {
+    console.log(note.title)
+}
+
 module.exports = {
     addNote,
     getAll,
     getNote,
+    logNotes,
     removeNote
 };
 
