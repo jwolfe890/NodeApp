@@ -38,7 +38,9 @@ var getAll = () => {
 };
 
 var getNote = (title) => {
-    console.log('Reading note', title)
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter((notes) => notes.title === title );
+    return filteredNotes[0];
 };
 
 var removeNote = (title) => {
@@ -54,7 +56,6 @@ module.exports = {
     getNote,
     removeNote
 };
-// this doesn't even have to be imported in app.js?
 
 
 
